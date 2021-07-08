@@ -48,12 +48,14 @@ If ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
     ## New Az module
     Install-Module -name Az -force
     write-host -foregroundcolor $processmessagecolor "Install SharePoint PnP module"
-    Install-Module SharePointPnPPowerShellOnline -Force
+    Install-Module PnP.PowerShell -Force
     write-host -foregroundcolor $processmessagecolor "Install Microsoft Graph Module"
     Install-Module -Name Microsoft.Graph -force
     write-host -foregroundcolor $processmessagecolor "Install Windows Autopilot Module"
     ## will also update dependent AzureAD and Microsoft.Graph.Intune modules
     Install-Module -Name WindowsAutoPilotIntune -force
+    write-host -foregroundcolor $processmessagecolor "Install Centralised Add-in Deployment"
+    Install-module -name O365CentralizedAddInDeployment
 }
 else {
     write-host -foregroundcolor $errormessagecolor "*** ERROR *** - Please re-run PowerShell environment as Administrator`n"
